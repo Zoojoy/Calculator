@@ -1,0 +1,83 @@
+
+body {
+ margin: 0;
+ min-height: 100vh;
+ background-color: rgb(30, 28, 28);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ box-sizing: border-box;
+}
+
+footer{
+ display: flex;
+ padding: 0px;
+ margin: 0px;
+ margin-top: 10.5px;
+ justify-content: flex-end;
+ color: rgb(169, 162, 162);
+ font-family: 'Times New Roman', Times, serif;
+ font-size: 9px;
+ font-style: italic;
+}
+
+h1 {
+color: rgb(199, 188, 188);
+font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.main {
+display:flex;
+flex-direction: column;
+text-align: center;
+ background-color: rgb(58, 55, 55);
+ width: 250px;
+ height: 480px;
+padding: 8px;
+ border-radius: 20px;
+}
+
+.result {
+ width: 250px;
+ height: 55px;
+ background-color: rgb(102, 100, 100);
+ margin-bottom: 21px;
+ border-radius: 15px;
+ box-shadow: 5px 5px 11px rgb(17, 17, 17)
+}
+
+.buttons {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin-top: 10.5px;
+}
+
+button {
+ color: white;
+ font-family:Georgia, 'Times New Roman', Times, serif;
+ font-size: 16px;
+ padding: 5px;
+ width: 55px;
+ height: 50px;
+ border: none;
+ border-radius: 15px;
+ box-shadow: 5px 5px 11px rgb(17, 17, 17)
+}
+
+button.number,
+            .decimal,
+            .errase{
+background-color: rgb(85, 83, 83);
+}
+button.clear{
+ background-color: rgb(212, 4, 4);
+}
+button.operator,
+            .percent{
+             background-color: rgb(241, 129, 17);
+}
+button.equal{
+ background-color: rgb(94, 186, 19);
+ width: 120px;
+}
