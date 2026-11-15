@@ -43,7 +43,11 @@ padding: 8px;
  background-color: rgb(102, 100, 100);
  margin-bottom: 21px;
  border-radius: 15px;
- box-shadow: 5px 5px 11px rgb(17, 17, 17)
+ box-shadow: 5px 5px 11px rgb(17, 17, 17);
+ font-size: 20px;
+ display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons {
