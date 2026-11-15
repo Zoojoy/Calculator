@@ -47,9 +47,11 @@ for (const number of numbers) {
     if(operator === null) {
       usersChoice1 += number.textContent;
       firstNumber = Number(usersChoice1);
+      display.textContent = `${usersChoice1}`;
     }else {
       usersChoice2 += number.textContent;
        secondNumber = Number(usersChoice2);
+       display.textContent = `${usersChoice1} ${operator} ${usersChoice2}` ; 
     }
   }
 )};
@@ -58,6 +60,7 @@ const operators = buttons.querySelectorAll(".operator");
 for( const operatorButton of operators) {
   operatorButton.addEventListener("click", () =>{
     operator = operatorButton.dataset.operator;
+    display.textContent = `${usersChoice1} ${operator} ` ; 
   });
 };
 
@@ -83,5 +86,24 @@ usersChoice2 = '';
 operator = null;
 display.textContent = 0;
 });
+
+const decimal = buttons.querySelector('.decimal');
+decimal.addEventListener('click', () => {
+      if (operator === null) {
+          if(usersChoice1.includes(".")) {
+            return;
+          }
+        usersChoice1 += ".";
+        firstNumber = Number(usersChoice1);
+        display.textContent = `${usersChoice1}`;
+      } else {
+          if(usersChoice2.includes(".")) {
+            return;
+          }
+        usersChoice2 += ".";
+        secondNumber = Number(usersChoice2)
+        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
+      }
+  });
 
 
