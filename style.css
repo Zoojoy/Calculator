@@ -46,8 +46,9 @@ padding: 8px;
  box-shadow: 5px 5px 11px rgb(17, 17, 17);
  font-size: 20px;
  display: flex;
-  justify-content: center;
+  justify-content :center;
   align-items: center;
+  color: rgb(199, 188, 188);
 }
 
 .buttons {

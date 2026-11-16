@@ -106,4 +106,27 @@ decimal.addEventListener('click', () => {
       }
   });
 
+  const backspace = buttons.querySelector('.errase');
+    backspace.addEventListener('click', () => {
+      if (operator === null) {
+       usersChoice1= usersChoice1.slice(0, -1);
+       firstNumber = Number(usersChoice1);
+       display.textContent = `${usersChoice1}`;
+      } else if ( usersChoice2 === "") {
+        operator = null;
+        display.textContent = `${usersChoice1} `;
+      } else {
+        usersChoice2 = usersChoice2.slice(0, -1);
+        secondNumber = Number(usersChoice2);
+        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
+      }
+      if (usersChoice1 === "" && operator === null && usersChoice2 === "") {
+        firstNumber = null;
+        secondNumber = null;
+        result = null;
+        display.textContent = "0";
+      }
+    });
 
+    
+      
