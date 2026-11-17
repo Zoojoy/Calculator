@@ -36,7 +36,8 @@ let secondNumber = null;
 let usersChoice1 = "";
 let usersChoice2 = "";
 let result = null;
-
+let calculated = null;
+let hasCalculated = false;
 
 const buttons = document.querySelector(".buttons");
 const numbers = buttons.querySelectorAll(".number");
@@ -44,7 +45,19 @@ const display = document.querySelector('.result');
   display.textContent = 0;
 for (const number of numbers) {
   number.addEventListener("click", () => {
-    if(operator === null) {
+   if (hasCalculated === true) {
+      result = null;
+       usersChoice1 = "";
+       usersChoice1 += number.textContent;
+      firstNumber = Number(usersChoice1);
+      usersChoice2 = "";
+       secondNumber = null;
+      operator = null;
+      display.textContent = `${usersChoice1}`;
+       hasCalculated = false;
+     return;
+   } else {
+    if (operator === null) {
       usersChoice1 += number.textContent;
       firstNumber = Number(usersChoice1);
       display.textContent = `${usersChoice1}`;
@@ -54,12 +67,16 @@ for (const number of numbers) {
        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}` ; 
     }
   }
+  }
 )};
 
 const operators = buttons.querySelectorAll(".operator");
 for( const operatorButton of operators) {
-  operatorButton.addEventListener("click", () =>{
-    operator = operatorButton.dataset.operator;
+    operatorButton.addEventListener("click", () =>{
+         operator = operatorButton.dataset.operator;
+         if (hasCalculated === true) {
+          hasCalculated = false;
+         }
     display.textContent = `${usersChoice1} ${operator} ` ; 
   });
 };
@@ -75,6 +92,12 @@ equals.addEventListener("click", () => {
   }
   result = operate(operator, firstNumber, secondNumber);
   display.textContent = result;
+  firstNumber = result;
+  usersChoice1 = String(result);
+  secondNumber = null;
+  usersChoice2 = "";
+  operator = null;
+  hasCalculated = true;
 });
 
 const clear = buttons.querySelector(".clear");
@@ -84,6 +107,8 @@ secondNumber = null;
 usersChoice1 = '';
 usersChoice2 = '';
 operator = null;
+result = null;
+hasCalculated = false;
 display.textContent = 0;
 });
 
@@ -128,5 +153,4 @@ decimal.addEventListener('click', () => {
       }
     });
 
-    
-      
+
