@@ -73,11 +73,20 @@ for (const number of numbers) {
 const operators = buttons.querySelectorAll(".operator");
 for( const operatorButton of operators) {
     operatorButton.addEventListener("click", () =>{
-         operator = operatorButton.dataset.operator;
+      if ( firstNumber !== null && operator !== null && secondNumber !== null) {
+        result = operate (operator, firstNumber, secondNumber);
+        firstNumber = result;
+        usersChoice1 = String(firstNumber);
+        secondNumber = null;
+        usersChoice2 = "";
+        operator = operatorButton.dataset.operator;
+      } else {
+        operator = operatorButton.dataset.operator;
+      }
+      display.textContent = `${firstNumber} ${operator} ${usersChoice2}`;
          if (hasCalculated === true) {
           hasCalculated = false;
          }
-    display.textContent = `${usersChoice1} ${operator} ` ; 
   });
 };
 
