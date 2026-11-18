@@ -75,7 +75,7 @@ for( const operatorButton of operators) {
     operatorButton.addEventListener("click", () =>{
       if ( firstNumber !== null && operator !== null && secondNumber !== null) {
         result = operate (operator, firstNumber, secondNumber);
-        firstNumber = result;
+        firstNumber = Number(result.toFixed(2));
         usersChoice1 = String(firstNumber);
         secondNumber = null;
         usersChoice2 = "";
@@ -100,13 +100,20 @@ equals.addEventListener("click", () => {
     return;
   }
   if ( operator === "/" && secondNumber === 0) {
+    firstNumber = null;
+    usersChoice1 = "";
+    operator = null;
+    secondNumber = null;
+    usersChoice2 = "";
+    result = null;
     display.textContent = "Cannot divide by zero";
     return;
   }
 
   result = operate(operator, firstNumber, secondNumber);
-  display.textContent = result;
+  result = Number(result.toFixed(2));
   firstNumber = result;
+  display.textContent = result;
   usersChoice1 = String(result);
   secondNumber = null;
   usersChoice2 = "";
@@ -184,4 +191,7 @@ decimal.addEventListener('click', () => {
               }
         });
 
+          document.addEventListener('keydown', (event) => {
+              
+          });
 
