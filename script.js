@@ -83,6 +83,10 @@ for( const operatorButton of operators) {
 
 const equals = buttons.querySelector(".equal");
 equals.addEventListener("click", () => {
+    if (operator === null && firstNumber !== null) {
+    display.textContent = firstNumber;
+    return;
+}
   if ( firstNumber === null || secondNumber === null || operator === null) {
     return;
   }
@@ -90,6 +94,7 @@ equals.addEventListener("click", () => {
     display.textContent = "Cannot divide by zero";
     return;
   }
+
   result = operate(operator, firstNumber, secondNumber);
   display.textContent = result;
   firstNumber = result;
@@ -152,5 +157,22 @@ decimal.addEventListener('click', () => {
         display.textContent = "0";
       }
     });
+
+    const percentage = buttons.querySelector('.percent');
+        percentage.addEventListener('click', () => {
+            if(operator === null) {
+              firstNumber = firstNumber/100;
+              usersChoice1 = String(firstNumber);
+              display.textContent = `${firstNumber*100}%`;
+            } else {
+               if ( operator === "+" || operator === "-") {
+                secondNumber = firstNumber*(secondNumber/100);
+                display.textContent = `${usersChoice1} ${operator} ${usersChoice2}%`;
+               } else if ( operator === "*" || operator === "/") {
+                secondNumber = secondNumber/100;
+                display.textContent = `${usersChoice1} ${operator} ${usersChoice2}%`
+               }
+              }
+        });
 
 
