@@ -1,6 +1,6 @@
 # Calculator
 
-![Calculator Screenshot](calculator.png)
+<img src="calculator.png" alt="Calculator Screenshot" width="200">
 
 ACTIVE LINK : https://zoojoy.github.io/Calculator/
 
