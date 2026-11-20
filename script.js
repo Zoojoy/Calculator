@@ -46,27 +46,27 @@ const numbers = buttons.querySelectorAll(".number");
 const display = document.querySelector('.result');
   display.textContent = 0;
 for (const number of numbers) {
-  number.addEventListener("click", () => {
-   if (hasCalculated === true) {
-      result = null;
-       usersChoice1 = "";
-       usersChoice1 += number.textContent;
-      firstNumber = Number(usersChoice1);
-      usersChoice2 = "";
-       secondNumber = null;
-      operator = null;
-      display.textContent = `${usersChoice1}`;
-       hasCalculated = false;
-     return;
-   } else {
-    if (operator === null) {
-      usersChoice1 += number.textContent;
-      firstNumber = Number(usersChoice1);
-      display.textContent = `${usersChoice1}`;
-    }else {
-      usersChoice2 += number.textContent;
-       secondNumber = Number(usersChoice2);
-       display.textContent = `${usersChoice1} ${operator} ${usersChoice2}` ; 
+     number.addEventListener("click", () => {
+        if (hasCalculated === true) {
+             result = null;
+             usersChoice1 = "";
+             usersChoice1 += number.textContent;
+             firstNumber = Number(usersChoice1);
+             usersChoice2 = "";
+             secondNumber = null;
+             operator = null;
+             display.textContent = `${usersChoice1}`;
+             hasCalculated = false;
+             return;
+       } else {
+           if (operator === null) {
+               usersChoice1 += number.textContent;
+               firstNumber = Number(usersChoice1);
+               display.textContent = `${usersChoice1}`;
+       }else {
+             usersChoice2 += number.textContent;
+             secondNumber = Number(usersChoice2);
+             display.textContent = `${usersChoice1} ${operator} ${usersChoice2}` ; 
     }
   }
   }
@@ -87,7 +87,7 @@ for( const operatorButton of operators) {
       }
       display.textContent = `${firstNumber} ${operator} ${usersChoice2}`;
          if (hasCalculated === true) {
-          hasCalculated = false;
+              hasCalculated = false;
          }
   });
 };
@@ -95,11 +95,11 @@ for( const operatorButton of operators) {
 const equals = buttons.querySelector(".equal");
 equals.addEventListener("click", () => {
     if (operator === null && firstNumber !== null) {
-    display.textContent = firstNumber;
-    return;
+       display.textContent = firstNumber;
+       return;
 }
-  if ( firstNumber === null || secondNumber === null || operator === null) {
-    return;
+     if ( firstNumber === null || secondNumber === null || operator === null) {
+      return;
   }
   if ( operator === "/" && secondNumber === 0) {
     firstNumber = null;
@@ -125,14 +125,14 @@ equals.addEventListener("click", () => {
 
 const clear = buttons.querySelector(".clear");
 clear.addEventListener('click', () => {
-firstNumber = null;
-secondNumber = null;
-usersChoice1 = '';
-usersChoice2 = '';
-operator = null;
-result = null;
-hasCalculated = false;
-display.textContent = 0;
+    firstNumber = null;
+    secondNumber = null;
+    usersChoice1 = '';
+    usersChoice2 = '';
+    operator = null;
+    result = null;
+    hasCalculated = false;
+    display.textContent = 0;
 });
 
 const decimal = buttons.querySelector('.decimal');
@@ -141,16 +141,16 @@ decimal.addEventListener('click', () => {
           if(usersChoice1.includes(".")) {
             return;
           }
-        usersChoice1 += ".";
-        firstNumber = Number(usersChoice1);
-        display.textContent = `${usersChoice1}`;
+            usersChoice1 += ".";
+            firstNumber = Number(usersChoice1);
+            display.textContent = `${usersChoice1}`;
       } else {
-          if(usersChoice2.includes(".")) {
+            if(usersChoice2.includes(".")) {
             return;
           }
-        usersChoice2 += ".";
-        secondNumber = Number(usersChoice2)
-        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
+            usersChoice2 += ".";
+            secondNumber = Number(usersChoice2)
+             display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
       }
   });
 
@@ -163,9 +163,9 @@ decimal.addEventListener('click', () => {
           firstNumberPercent = false;
           return;
          }
-       usersChoice1= usersChoice1.slice(0, -1);
-       firstNumber = Number(usersChoice1);
-       display.textContent = `${usersChoice1}`;
+           usersChoice1= usersChoice1.slice(0, -1);
+           firstNumber = Number(usersChoice1);
+           display.textContent = `${usersChoice1}`;
       }  if ( secondNumberPercent === true) {
           secondNumber = Number(usersChoice2);
           display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
@@ -177,9 +177,9 @@ decimal.addEventListener('click', () => {
         display.textContent = `${usersChoice1} `;
       } else {
        
-        usersChoice2 = usersChoice2.slice(0, -1);
-        secondNumber = Number(usersChoice2);
-        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
+         usersChoice2 = usersChoice2.slice(0, -1);
+         secondNumber = Number(usersChoice2);
+         display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
       }
       if (usersChoice1 === "" && operator === null && usersChoice2 === "") {
         firstNumber = null;
@@ -213,23 +213,23 @@ decimal.addEventListener('click', () => {
           document.addEventListener('keydown', (event) => {
               if ("0123456789".includes(event.key)) {
                 if (hasCalculated === true) {
-      result = null;
-       usersChoice1 = "";
-       usersChoice1 += event.key;
-      firstNumber = Number(usersChoice1);
-      usersChoice2 = "";
-       secondNumber = null;
-      operator = null;
-      display.textContent = `${usersChoice1}`;
-       hasCalculated = false;
-     return;
+                      result = null;
+                     usersChoice1 = "";
+                     usersChoice1 += event.key;
+                     firstNumber = Number(usersChoice1);
+                     usersChoice2 = "";
+                     secondNumber = null;
+                     operator = null;
+                     display.textContent = `${usersChoice1}`;
+                     hasCalculated = false;
+                     return;
    } else {
                 if (operator === null) {
-      usersChoice1 += event.key;
-      firstNumber = Number(usersChoice1);
-      display.textContent = `${usersChoice1}`;
+                   usersChoice1 += event.key;
+                   firstNumber = Number(usersChoice1);
+                   display.textContent = `${usersChoice1}`;
     }else {
-      usersChoice2 += event.key;
+       usersChoice2 += event.key;
        secondNumber = Number(usersChoice2);
        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}` ; 
     }
@@ -240,18 +240,18 @@ decimal.addEventListener('click', () => {
           document.addEventListener("keydown", (event) => {
             if (["-", "+", "*", "/"].includes(event.key)) {
                if ( firstNumber !== null && operator !== null && secondNumber !== null) {
-        result = operate (operator, firstNumber, secondNumber);
-        firstNumber = Number(result.toFixed(2));
-        usersChoice1 = String(firstNumber);
-        secondNumber = null;
-        usersChoice2 = "";
-        operator = event.key;
+                   result = operate (operator, firstNumber, secondNumber);
+                   firstNumber = Number(result.toFixed(2));
+                   usersChoice1 = String(firstNumber);
+                   secondNumber = null;
+                   usersChoice2 = "";
+                   operator = event.key;
       } else {
-        operator = event.key;
+            operator = event.key;
       }
       display.textContent = `${firstNumber} ${operator} ${usersChoice2}`;
-         if (hasCalculated === true) {
-          hasCalculated = false;
+             if (hasCalculated === true) {
+             hasCalculated = false;
          }
             }
           });
@@ -259,11 +259,11 @@ decimal.addEventListener('click', () => {
           document.addEventListener('keydown', (event) => { 
               if(event.key === "Enter" || event.key ==="="){
                    if (operator === null && firstNumber !== null) {
-    display.textContent = firstNumber;
-    return;
+                       display.textContent = firstNumber;
+                       return;
 }
   if ( firstNumber === null || secondNumber === null || operator === null) {
-    return;
+         return;
   }
   if ( operator === "/" && secondNumber === 0) {
     firstNumber = null;
@@ -293,26 +293,26 @@ decimal.addEventListener('click', () => {
               if(event.key === "Backspace") {
                  if (operator === null) {
                    if ( firstNumberPercent === true) {
-          firstNumber = Number(usersChoice1);
-          display.textContent = `${usersChoice1}`;
-          firstNumberPercent = false;
-          return;
+                         firstNumber = Number(usersChoice1);
+                         display.textContent = `${usersChoice1}`;
+                         firstNumberPercent = false;
+                         return;
          }
-       usersChoice1= usersChoice1.slice(0, -1);
-       firstNumber = Number(usersChoice1);
-       display.textContent = `${usersChoice1}`;
+                     usersChoice1= usersChoice1.slice(0, -1);
+                    firstNumber = Number(usersChoice1);
+                   display.textContent = `${usersChoice1}`;
       } if ( secondNumberPercent === true) {
           secondNumber = Number(usersChoice2);
           display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
           secondNumberPercent = false;
           return;
         } else if ( usersChoice2 === "") {
-        operator = null;
-        display.textContent = `${usersChoice1} `;
+            operator = null;
+           display.textContent = `${usersChoice1} `;
       } else {
-        usersChoice2 = usersChoice2.slice(0, -1);
-        secondNumber = Number(usersChoice2);
-        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
+            usersChoice2 = usersChoice2.slice(0, -1);
+           secondNumber = Number(usersChoice2);
+           display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
       }
       if (usersChoice1 === "" && operator === null && usersChoice2 === "") {
         firstNumber = null;
@@ -342,16 +342,16 @@ decimal.addEventListener('click', () => {
                       if(usersChoice1.includes(".")) {
                            return;
                          }
-        usersChoice1 += ".";
-        firstNumber = Number(usersChoice1);
-        display.textContent = `${usersChoice1}`;
+                 usersChoice1 += ".";
+                 firstNumber = Number(usersChoice1);
+                 display.textContent = `${usersChoice1}`;
       } else {
           if(usersChoice2.includes(".")) {
             return;
           }
-        usersChoice2 += ".";
-        secondNumber = Number(usersChoice2)
-        display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
+                  usersChoice2 += ".";
+                  secondNumber = Number(usersChoice2)
+                  display.textContent = `${usersChoice1} ${operator} ${usersChoice2}`;
       }
               }
           });
