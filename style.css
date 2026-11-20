@@ -67,7 +67,13 @@ button {
  height: 50px;
  border: none;
  border-radius: 15px;
- box-shadow: 5px 5px 11px rgb(17, 17, 17)
+ box-shadow: 5px 5px 11px rgb(17, 17, 17);
+ transition: box-shadow 0.1s ease, transform 0.1s ease;
+}
+
+button:active {
+    box-shadow: 1px 1px 3px rgb(17, 17, 17);
+    transform: translate(3px, 3px);
 }
 
 button.number,
